@@ -5,14 +5,18 @@ img = cv.imread('Photos/cat_large.jpg')
 
 cv.imshow('Cat', img)
 
-
+#for img, vid, live vid
 def rescaleFrame(frame, scale=0.2):
-    
     width = int(frame.shape[1] * scale)   #frame.shape[1] -> width
     height = int(frame.shape[0] * scale)   #frame.shape[0] -> height
     dimensions = (width,height)
     
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
+
+#for live vid
+def changeRes(width, height):
+    capture.set(3, width)
+    capture.set(4, height)
 
 frame_resized = rescaleFrame(img)
 cv.imshow('Image', frame_resized)
